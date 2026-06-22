@@ -1,15 +1,23 @@
 :root {
-  --orange: #ff6b00;
-  --orange-dark: #d95700;
+  --orange: #FE6402;
+  --orange-dark: #d94f00;
+
+  --teal: #009C8F;
+  --teal-dark: #007a70;
+  --teal-soft: rgba(0, 156, 143, 0.12);
+
   --black: #111111;
   --gray-900: #1f1f1f;
   --gray-700: #4f4f4f;
   --gray-500: #777777;
+  --gray-300: #dddddd;
   --gray-200: #eeeeee;
   --gray-100: #f7f7f7;
   --white: #ffffff;
+
   --success: #198754;
   --danger: #d93025;
+
   --shadow: 0 18px 45px rgba(0, 0, 0, 0.08);
   --radius: 22px;
 }
@@ -60,13 +68,20 @@ textarea {
 }
 
 .logo {
-  font-size: 1.8rem;
-  font-weight: 900;
-  letter-spacing: -1px;
+  display: inline-flex;
+  align-items: center;
+  text-decoration: none;
 }
 
-.logo span {
-  color: var(--orange);
+.logo-image img {
+  height: 48px;
+  width: auto;
+  display: block;
+  object-fit: contain;
+}
+
+.auth-logo img {
+  height: 58px;
 }
 
 .menu {
