@@ -74,7 +74,7 @@ textarea {
 }
 
 .logo-image img {
-  height: 48px;
+  height: 130px;
   width: auto;
   display: block;
   object-fit: contain;
@@ -123,7 +123,7 @@ textarea {
 }
 
 .btn-secondary {
-  background: var(--black);
+  background: var(--orange);
   color: var(--white);
 }
 
@@ -149,8 +149,8 @@ textarea {
 .hero {
   padding: 70px 0;
   background:
-    radial-gradient(circle at top left, rgba(255, 107, 0, 0.16), transparent 34%),
-    linear-gradient(135deg, #ffffff 0%, #f3f3f3 100%);
+    radial-gradient(circle at top left, rgba(27, 243, 207, 0.16), transparent 34%),
+    linear-gradient(135deg, #ffffff 0%, #ffe9cd 100%);
 }
 
 .hero-grid {
@@ -158,6 +158,7 @@ textarea {
   grid-template-columns: 1.1fr 0.9fr;
   align-items: center;
   gap: 44px;
+
 }
 
 .tag {
@@ -175,6 +176,14 @@ textarea {
   line-height: 0.97;
   margin: 0;
   letter-spacing: -3px;
+}
+
+.text-orange {
+  color: var(--orange);
+}
+
+.text-teal {
+  color: var(--orange);
 }
 
 .hero-subtitle {
@@ -337,7 +346,7 @@ textarea:focus {
 }
 
 .about-card {
-  background: var(--black);
+  background: var(--teal-dark);
   color: var(--white);
   border-radius: 30px;
   padding: 44px;
@@ -349,20 +358,42 @@ textarea:focus {
 
 .about-card p {
   line-height: 1.8;
-  color: #e8e8e8;
+  color: #ffffff;
+}
+
+.about-card .tag {
+  color: var(--gray-300);
 }
 
 .footer {
   background: var(--white);
   border-top: 1px solid var(--gray-200);
-  padding: 28px 0;
+  padding: 34px 0;
 }
 
-.footer-content {
+.footer-centered {
   display: flex;
-  justify-content: space-between;
-  gap: 24px;
-  color: var(--gray-700);
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+.footer-centered p {
+  margin: 0;
+  width: 100%;
+  max-width: 1100px;
+  font-size: clamp(1.35rem, 2.2vw, 2rem);
+  line-height: 1.25;
+  font-weight: 900;
+  letter-spacing: -0.6px;
+  color: var(--orange);
+  text-wrap: balance;
+}
+
+@media (min-width: 1000px) {
+  .footer-centered p {
+    white-space: nowrap;
+  }
 }
 
 .page-spacing,

@@ -1,8 +1,4 @@
-// Etapa 2:
-// Aqui vamos configurar o cliente Supabase.
+const SUPABASE_URL = "https://ptdxkhkbxcgtfclqgndn.supabase.co";
+const SUPABASE_ANON_KEY = "sb_publishable_G8YH1t0PV8TROwJcT5Vwsw_thAE--je";
 
-// Exemplo futuro:
-// const SUPABASE_URL = "SUA_URL_DO_SUPABASE";
-// const SUPABASE_ANON_KEY = "SUA_ANON_KEY_DO_SUPABASE";
-//
-// const supabaseClient = supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
+const supabaseClient = supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
