@@ -6,7 +6,15 @@ function showMessage(message, type) {
   loginMessage.className = `form-message ${type}`;
 }
 
-loginForm.addEventListener("submit", (event) => {
+async function checkExistingSession() {
+  const { data } = await window.supabaseClient.auth.getSession();
+
+  if (data.session) {
+    window.location.href = "admin.html";
+  }
+}
+
+loginForm.addEventListener("submit", async (event) => {
   event.preventDefault();
 
   const email = document.getElementById("email").value.trim();
@@ -17,9 +25,25 @@ loginForm.addEventListener("submit", (event) => {
     return;
   }
 
-  showMessage("Login será conectado ao Supabase na próxima etapa.", "success");
+  showMessage("Entrando...", "success");
 
-  setTimeout(() => {
-    window.location.href = "admin.html";
-  }, 700);
+  const { data, error } = await window.supabaseClient.auth.signInWithPassword({
+    email,
+    password
+  });
+
+  if (error) {
+    console.error("Erro no login:", error);
+    showMessage("E-mail ou senha inválidos. Verifique os dados e tente novamente.", "error");
+    return;
+  }
+
+  if (!data.session) {
+    showMessage("Não foi possível iniciar a sessão. Tente novamente.", "error");
+    return;
+  }
+
+  window.location.href = "admin.html";
 });
+
+document.addEventListener("DOMContentLoaded", checkExistingSession);
