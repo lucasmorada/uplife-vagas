@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>UpLife Vagas</title>
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+
+  <header class="site-header">
+    <div class="container header-content">
+      <a href="index.html" class="logo">Up<span>Life</span></a>
+
+      <nav class="menu">
+        <a href="#vagas">Vagas</a>
+        <a href="#sobre">Sobre</a>
+        <a href="login.html" class="btn btn-outline">Painel Admin</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="container hero-grid">
+        <div class="hero-text">
+          <p class="tag">Portal de oportunidades</p>
+          <h1>Encontre oportunidades de trabalho perto de você</h1>
+          <p class="hero-subtitle">
+            A UpLife conecta você com vagas reais e ajuda você a se preparar para conquistar uma oportunidade melhor.
+          </p>
+          <p class="institutional-phrase">
+            “Tão importante quanto a oportunidade, é estar preparado para ela.”
+          </p>
+        </div>
+
+        <div class="hero-card">
+          <h2>Busque sua vaga</h2>
+
+          <div class="filters">
+            <input type="text" id="searchInput" placeholder="Cargo, empresa ou palavra chave" />
+
+            <input type="text" id="locationInput" placeholder="Localização" />
+
+            <select id="modelInput">
+              <option value="">Modelo de trabalho</option>
+              <option value="presencial">Presencial</option>
+              <option value="remoto">Remoto</option>
+              <option value="hibrido">Híbrido</option>
+            </select>
+
+            <select id="areaInput">
+              <option value="">Área</option>
+              <option value="administrativo">Administrativo</option>
+              <option value="comercial">Comercial</option>
+              <option value="operacional">Operacional</option>
+              <option value="tecnologia">Tecnologia</option>
+              <option value="atendimento">Atendimento</option>
+              <option value="logistica">Logística</option>
+              <option value="outros">Outros</option>
+            </select>
+
+            <button id="clearFilters" class="btn btn-secondary">Limpar filtros</button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="jobs-section" id="vagas">
+      <div class="container">
+        <div class="section-header">
+          <div>
+            <p class="tag">Vagas abertas</p>
+            <h2>Vagas disponíveis</h2>
+          </div>
+          <p id="jobsCounter" class="counter-text">Carregando vagas...</p>
+        </div>
+
+        <div id="loadingMessage" class="loading">Buscando oportunidades...</div>
+
+        <div id="jobsList" class="jobs-grid"></div>
+
+        <div id="emptyMessage" class="empty-state hidden">
+          <h3>Nenhuma vaga encontrada no momento.</h3>
+          <p>Volte em breve para conferir novas oportunidades.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="about-section" id="sobre">
+      <div class="container about-card">
+        <div>
+          <p class="tag">Sobre a UpLife</p>
+          <h2>Preparação e oportunidade caminhando juntas</h2>
+        </div>
+        <p>
+          A UpLife acredita que uma vaga de emprego pode transformar vidas, mas também entende que preparação faz toda diferença.
+          Por isso, este portal foi criado para aproximar candidatos de oportunidades reais, com uma experiência simples, clara e acessível.
+        </p>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container footer-content">
+      <strong>UpLife</strong>
+      <p>“Tão importante quanto a oportunidade, é estar preparado para ela.”</p>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+</body>
+</html>

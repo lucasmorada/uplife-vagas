@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Acesso Administrativo | UpLife</title>
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body class="auth-body">
+
+  <main class="auth-wrapper">
+    <section class="auth-card">
+      <a href="index.html" class="logo auth-logo">Up<span>Life</span></a>
+
+      <h1>Acesso Administrativo</h1>
+      <p>Entre para cadastrar, editar e gerenciar vagas.</p>
+
+      <form id="loginForm" class="form">
+        <div class="form-group">
+          <label for="email">E-mail</label>
+          <input type="email" id="email" placeholder="admin@uplife.com" required />
+        </div>
+
+        <div class="form-group">
+          <label for="password">Senha</label>
+          <input type="password" id="password" placeholder="Digite sua senha" required />
+        </div>
+
+        <button type="submit" class="btn btn-primary btn-full">Entrar</button>
+
+        <p id="loginMessage" class="form-message"></p>
+      </form>
+
+      <a href="index.html" class="back-link center-link">Voltar para o site</a>
+    </section>
+  </main>
+
+  <script src="js/auth.js"></script>
+</body>
+</html>
