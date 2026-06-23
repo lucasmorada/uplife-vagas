@@ -149,8 +149,8 @@ textarea {
 .hero {
   padding: 70px 0;
   background:
-    radial-gradient(circle at top left, rgba(27, 243, 207, 0.16), transparent 34%),
-    linear-gradient(135deg, #ffffff 0%, #ffe9cd 100%);
+    radial-gradient(circle at top left, rgba(255, 255, 255, 0.16), transparent 34%),
+    linear-gradient(135deg, #ffffff 0%, #faf5ef 100%);
 }
 
 .hero-grid {
@@ -183,7 +183,7 @@ textarea {
 }
 
 .text-teal {
-  color: var(--orange);
+  color: var(--teal-dark);
 }
 
 .hero-subtitle {
