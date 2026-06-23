@@ -6,14 +6,6 @@ function showMessage(message, type) {
   loginMessage.className = `form-message ${type}`;
 }
 
-async function checkExistingSession() {
-  const { data } = await window.supabaseClient.auth.getSession();
-
-  if (data.session) {
-    window.location.href = "admin.html";
-  }
-}
-
 loginForm.addEventListener("submit", async (event) => {
   event.preventDefault();
 
@@ -32,18 +24,17 @@ loginForm.addEventListener("submit", async (event) => {
     password
   });
 
+  console.log("Resultado do login:", { data, error });
+
   if (error) {
-    console.error("Erro no login:", error);
     showMessage("E-mail ou senha inválidos. Verifique os dados e tente novamente.", "error");
     return;
   }
 
   if (!data.session) {
-    showMessage("Não foi possível iniciar a sessão. Tente novamente.", "error");
+    showMessage("Login feito, mas a sessão não foi criada. Verifique as configurações do Supabase.", "error");
     return;
   }
 
   window.location.href = "admin.html";
 });
-
-document.addEventListener("DOMContentLoaded", checkExistingSession);
