@@ -1,9 +1,11 @@
 let vagas = [];
+let showingAllJobs = false;
 
 const jobsList = document.getElementById("jobsList");
 const loadingMessage = document.getElementById("loadingMessage");
 const emptyMessage = document.getElementById("emptyMessage");
 const jobsCounter = document.getElementById("jobsCounter");
+const viewAllJobsButton = document.getElementById("viewAllJobsButton");
 
 const searchInput = document.getElementById("searchInput");
 const locationInput = document.getElementById("locationInput");
@@ -99,13 +101,30 @@ function getFilteredJobs() {
   });
 }
 
+function hasActiveFilters() {
+  return (
+    searchInput.value.trim() ||
+    locationInput.value.trim() ||
+    modelInput.value ||
+    areaInput.value
+  );
+}
+
 function renderJobs() {
   const filteredJobs = getFilteredJobs();
+  const filtersAreActive = hasActiveFilters();
+
+  const jobsToRender =
+    showingAllJobs || filtersAreActive
+      ? filteredJobs
+      : filteredJobs.slice(0, 3);
 
   jobsList.innerHTML = "";
-  jobsCounter.textContent = `${filteredJobs.length} vaga(s) encontrada(s)`;
 
   if (filteredJobs.length === 0) {
+    jobsCounter.textContent = "0 vaga(s) encontrada(s)";
+    viewAllJobsButton.classList.add("hidden");
+
     emptyMessage.classList.remove("hidden");
     emptyMessage.innerHTML = `
       <h3>Nenhuma vaga encontrada no momento.</h3>
@@ -116,7 +135,22 @@ function renderJobs() {
 
   emptyMessage.classList.add("hidden");
 
-  filteredJobs.forEach((vaga) => {
+  if (!filtersAreActive && !showingAllJobs && filteredJobs.length > 3) {
+    jobsCounter.textContent = `Mostrando 3 vagas recentes de ${filteredJobs.length} vaga(s) disponível(is)`;
+  } else {
+    jobsCounter.textContent = `${filteredJobs.length} vaga(s) encontrada(s)`;
+  }
+
+  if (!filtersAreActive && filteredJobs.length > 3) {
+    viewAllJobsButton.classList.remove("hidden");
+    viewAllJobsButton.textContent = showingAllJobs
+      ? "Mostrar apenas recentes"
+      : "Ver todas as vagas";
+  } else {
+    viewAllJobsButton.classList.add("hidden");
+  }
+
+  jobsToRender.forEach((vaga) => {
     const card = document.createElement("article");
     card.className = "job-card";
 
@@ -145,8 +179,15 @@ function renderJobs() {
 
 function setupFilters() {
   [searchInput, locationInput, modelInput, areaInput].forEach((input) => {
-    input.addEventListener("input", renderJobs);
-    input.addEventListener("change", renderJobs);
+    input.addEventListener("input", () => {
+      showingAllJobs = false;
+      renderJobs();
+    });
+
+    input.addEventListener("change", () => {
+      showingAllJobs = false;
+      renderJobs();
+    });
   });
 
   clearFilters.addEventListener("click", () => {
@@ -154,6 +195,12 @@ function setupFilters() {
     locationInput.value = "";
     modelInput.value = "";
     areaInput.value = "";
+    showingAllJobs = false;
+    renderJobs();
+  });
+
+  viewAllJobsButton.addEventListener("click", () => {
+    showingAllJobs = !showingAllJobs;
     renderJobs();
   });
 }
