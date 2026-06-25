@@ -52,7 +52,7 @@ textarea {
 
 .site-header {
   background: rgba(255, 255, 255, 0.94);
-  backdrop-filter: blur(10px);
+  backdrop-filter: blur(30px);
   border-bottom: 1px solid var(--gray-200);
   position: sticky;
   top: 0;
