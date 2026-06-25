@@ -302,10 +302,9 @@ newJobButton.addEventListener("click", () => {
 
 closeFormButton.addEventListener("click", closeForm);
 
-logoutButton.addEventListener("click", () => {
-  window.location.href = "index.html";
+logoutButton.addEventListener("click", async () => {
+  await window.supabaseClient.auth.signOut();
+  window.location.reload();
 });
 
-document.addEventListener("DOMContentLoaded", () => {
-  loadAdminJobs();
-});
+window.loadAdminJobs = loadAdminJobs;

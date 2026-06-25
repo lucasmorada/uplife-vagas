@@ -3,175 +3,211 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Painel Administrativo</title>
+  <title>Painel Administrativo | UpLife</title>
   <link rel="stylesheet" href="css/style.css" />
 </head>
-<body>
+<body class="admin-auth-body">
 
-  <header class="site-header">
-    <div class="container header-content">
-      <a href="index.html" class="logo logo-image">
-       <img src="assets/logo-uplife.png" alt="UpLife" />
+  <section id="adminLoginScreen" class="admin-login-screen">
+    <div class="admin-login-card">
+      <a href="index.html" class="logo logo-image admin-login-logo">
+        <img src="assets/logo-uplife.png" alt="UpLife" />
       </a>
 
-      <nav class="menu">
-        <a href="index.html">Ver site</a>
-        <button id="logoutButton" class="btn btn-outline">Sair</button>
-      </nav>
+      <p class="tag">Área restrita</p>
+      <h1>Acesso Administrativo</h1>
+      <p class="admin-login-text">
+        Entre com sua conta autorizada para cadastrar, editar e gerenciar as vagas da UpLife.
+      </p>
+
+      <form id="adminLoginForm" class="form">
+        <div class="form-group">
+          <label for="adminEmail">E-mail</label>
+          <input type="email" id="adminEmail" placeholder="seuemail@uplife.com" required />
+        </div>
+
+        <div class="form-group">
+          <label for="adminPassword">Senha</label>
+          <input type="password" id="adminPassword" placeholder="Digite sua senha" required />
+        </div>
+
+        <button type="submit" class="btn btn-primary btn-full">Entrar no painel</button>
+
+        <p id="adminLoginMessage" class="form-message"></p>
+      </form>
+
+      <a href="index.html" class="back-link center-link">Voltar para o site</a>
     </div>
-  </header>
+  </section>
 
-  <main class="admin-page">
-    <section class="container">
-      <div class="admin-title">
-        <div>
-          <p class="tag">Painel administrativo</p>
-          <h1>Gerenciar vagas</h1>
-        </div>
+  <div id="adminProtectedContent" class="admin-protected hidden">
+    <header class="site-header">
+      <div class="container header-content">
+        <a href="index.html" class="logo logo-image">
+          <img src="assets/logo-uplife.png" alt="UpLife" />
+        </a>
 
-        <button id="newJobButton" class="btn btn-primary">Cadastrar nova vaga</button>
+        <nav class="menu">
+          <a href="index.html">Ver site</a>
+          <button id="logoutButton" class="btn btn-outline">Sair</button>
+        </nav>
       </div>
+    </header>
 
-      <div class="stats-grid">
-        <div class="stat-card">
-          <span id="totalJobs">0</span>
-          <p>Total de vagas</p>
+    <main class="admin-page">
+      <section class="container">
+        <div class="admin-title">
+          <div>
+            <p class="tag">Painel administrativo</p>
+            <h1>Gerenciar vagas</h1>
+          </div>
+
+          <button id="newJobButton" class="btn btn-primary">Cadastrar nova vaga</button>
         </div>
 
-        <div class="stat-card">
-          <span id="activeJobs">0</span>
-          <p>Vagas ativas</p>
+        <div class="stats-grid">
+          <div class="stat-card">
+            <span id="totalJobs">0</span>
+            <p>Total de vagas</p>
+          </div>
+
+          <div class="stat-card">
+            <span id="activeJobs">0</span>
+            <p>Vagas ativas</p>
+          </div>
+
+          <div class="stat-card">
+            <span id="inactiveJobs">0</span>
+            <p>Vagas inativas</p>
+          </div>
         </div>
 
-        <div class="stat-card">
-          <span id="inactiveJobs">0</span>
-          <p>Vagas inativas</p>
-        </div>
-      </div>
-
-      <section id="formPanel" class="admin-form-panel hidden">
-        <div class="form-header">
-          <h2 id="formTitle">Cadastrar vaga</h2>
-          <button id="closeFormButton" class="icon-button">Fechar</button>
-        </div>
-
-        <form id="jobForm" class="job-form">
-          <input type="hidden" id="jobId" />
-
-          <div class="form-grid">
-            <div class="form-group">
-              <label for="titulo">Título da vaga *</label>
-              <input type="text" id="titulo" required />
-            </div>
-
-            <div class="form-group">
-              <label for="empresa">Empresa</label>
-              <input type="text" id="empresa" />
-            </div>
-
-            <div class="form-group">
-              <label for="localizacao">Localização *</label>
-              <input type="text" id="localizacao" required />
-            </div>
-
-            <div class="form-group">
-              <label for="area">Área *</label>
-              <select id="area" required>
-                <option value="">Selecione</option>
-                <option value="administrativo">Administrativo</option>
-                <option value="comercial">Comercial</option>
-                <option value="operacional">Operacional</option>
-                <option value="tecnologia">Tecnologia</option>
-                <option value="atendimento">Atendimento</option>
-                <option value="logistica">Logística</option>
-                <option value="outros">Outros</option>
-              </select>
-            </div>
-
-            <div class="form-group">
-              <label for="tipo_contrato">Tipo de contrato</label>
-              <input type="text" id="tipo_contrato" placeholder="CLT, PJ, estágio..." />
-            </div>
-
-            <div class="form-group">
-              <label for="modelo_trabalho">Modelo de trabalho *</label>
-              <select id="modelo_trabalho" required>
-                <option value="">Selecione</option>
-                <option value="presencial">Presencial</option>
-                <option value="remoto">Remoto</option>
-                <option value="hibrido">Híbrido</option>
-              </select>
-            </div>
-
-            <div class="form-group">
-              <label for="salario">Salário</label>
-              <input type="text" id="salario" placeholder="Ex: R$ 2.000,00" />
-            </div>
-
-            <div class="form-group">
-              <label for="link_inscricao">Link de inscrição *</label>
-              <input type="url" id="link_inscricao" required />
-            </div>
+        <section id="formPanel" class="admin-form-panel hidden">
+          <div class="form-header">
+            <h2 id="formTitle">Cadastrar vaga</h2>
+            <button id="closeFormButton" class="icon-button">Fechar</button>
           </div>
 
-          <div class="form-group">
-            <label for="resumo">Resumo curto *</label>
-            <textarea id="resumo" required></textarea>
+          <form id="jobForm" class="job-form">
+            <input type="hidden" id="jobId" />
+
+            <div class="form-grid">
+              <div class="form-group">
+                <label for="titulo">Título da vaga *</label>
+                <input type="text" id="titulo" required />
+              </div>
+
+              <div class="form-group">
+                <label for="empresa">Empresa</label>
+                <input type="text" id="empresa" />
+              </div>
+
+              <div class="form-group">
+                <label for="localizacao">Localização *</label>
+                <input type="text" id="localizacao" required />
+              </div>
+
+              <div class="form-group">
+                <label for="area">Área *</label>
+                <select id="area" required>
+                  <option value="">Selecione</option>
+                  <option value="administrativo">Administrativo</option>
+                  <option value="comercial">Comercial</option>
+                  <option value="operacional">Operacional</option>
+                  <option value="tecnologia">Tecnologia</option>
+                  <option value="atendimento">Atendimento</option>
+                  <option value="logistica">Logística</option>
+                  <option value="outros">Outros</option>
+                </select>
+              </div>
+
+              <div class="form-group">
+                <label for="tipo_contrato">Tipo de contrato</label>
+                <input type="text" id="tipo_contrato" placeholder="CLT, PJ, estágio..." />
+              </div>
+
+              <div class="form-group">
+                <label for="modelo_trabalho">Modelo de trabalho *</label>
+                <select id="modelo_trabalho" required>
+                  <option value="">Selecione</option>
+                  <option value="presencial">Presencial</option>
+                  <option value="remoto">Remoto</option>
+                  <option value="hibrido">Híbrido</option>
+                </select>
+              </div>
+
+              <div class="form-group">
+                <label for="salario">Salário</label>
+                <input type="text" id="salario" placeholder="Ex: R$ 2.000,00" />
+              </div>
+
+              <div class="form-group">
+                <label for="link_inscricao">Link de inscrição *</label>
+                <input type="url" id="link_inscricao" required />
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label for="resumo">Resumo curto *</label>
+              <textarea id="resumo" required></textarea>
+            </div>
+
+            <div class="form-group">
+              <label for="descricao">Descrição completa *</label>
+              <textarea id="descricao" required></textarea>
+            </div>
+
+            <div class="form-group">
+              <label for="requisitos">Requisitos</label>
+              <textarea id="requisitos"></textarea>
+            </div>
+
+            <div class="form-group">
+              <label for="beneficios">Benefícios</label>
+              <textarea id="beneficios"></textarea>
+            </div>
+
+            <div class="form-group">
+              <label for="horario">Horário de trabalho</label>
+              <input type="text" id="horario" />
+            </div>
+
+            <label class="checkbox-line">
+              <input type="checkbox" id="ativa" checked />
+              Vaga ativa
+            </label>
+
+            <button type="submit" class="btn btn-primary">Salvar vaga</button>
+            <p id="adminMessage" class="form-message"></p>
+          </form>
+        </section>
+
+        <section class="jobs-admin-list">
+          <h2>Vagas cadastradas</h2>
+
+          <div class="table-wrapper">
+            <table>
+              <thead>
+                <tr>
+                  <th>Vaga</th>
+                  <th>Localização</th>
+                  <th>Modelo</th>
+                  <th>Status</th>
+                  <th>Ações</th>
+                </tr>
+              </thead>
+
+              <tbody id="adminJobsList"></tbody>
+            </table>
           </div>
-
-          <div class="form-group">
-            <label for="descricao">Descrição completa *</label>
-            <textarea id="descricao" required></textarea>
-          </div>
-
-          <div class="form-group">
-            <label for="requisitos">Requisitos</label>
-            <textarea id="requisitos"></textarea>
-          </div>
-
-          <div class="form-group">
-            <label for="beneficios">Benefícios</label>
-            <textarea id="beneficios"></textarea>
-          </div>
-
-          <div class="form-group">
-            <label for="horario">Horário de trabalho</label>
-            <input type="text" id="horario" />
-          </div>
-
-          <label class="checkbox-line">
-            <input type="checkbox" id="ativa" checked />
-            Vaga ativa
-          </label>
-
-          <button type="submit" class="btn btn-primary">Salvar vaga</button>
-          <p id="adminMessage" class="form-message"></p>
-        </form>
+        </section>
       </section>
-
-      <section class="jobs-admin-list">
-        <h2>Vagas cadastradas</h2>
-
-        <div class="table-wrapper">
-          <table>
-            <thead>
-              <tr>
-                <th>Vaga</th>
-                <th>Localização</th>
-                <th>Modelo</th>
-                <th>Status</th>
-                <th>Ações</th>
-              </tr>
-            </thead>
-            <tbody id="adminJobsList"></tbody>
-          </table>
-        </div>
-      </section>
-    </section>
-  </main>
+    </main>
+  </div>
 
   <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
-<script src="js/supabase.js"></script>
-<script src="js/admin.js"></script>
+  <script src="js/supabase.js"></script>
+  <script src="js/admin.js"></script>
+  <script src="js/admin-auth.js"></script>
 </body>
 </html>
