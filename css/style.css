@@ -51,7 +51,7 @@ textarea {
 }
 
 .site-header {
-  background: rgba(255, 255, 255, 0.94);
+  background: rgba(255, 255, 255, 1.94);
   backdrop-filter: blur(30px);
   border-bottom: 1px solid var(--gray-200);
   position: sticky;
@@ -884,7 +884,7 @@ html {
 }
 
 .footer-logo img {
-  height: 74px;
+  height: 224px;
   width: auto;
   margin-bottom: 10px;
   filter: drop-shadow(0 12px 24px rgba(0, 0, 0, 0.24));
