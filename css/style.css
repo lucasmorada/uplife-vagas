@@ -249,6 +249,12 @@ textarea:focus {
   padding: 70px 0;
 }
 
+.jobs-actions {
+  display: flex;
+  justify-content: center;
+  margin-top: 34px;
+}
+
 .section-header,
 .admin-title {
   display: flex;
