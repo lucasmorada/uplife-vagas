@@ -27,11 +27,11 @@ function formatLabel(value) {
     presencial: "Presencial",
     remoto: "Remoto",
     hibrido: "Híbrido",
-    administrativo: "Administrativo",
-    comercial: "Comercial",
-    operacional: "Operacional",
-    tecnologia: "Tecnologia",
-    atendimento: "Atendimento",
+    mecanica: "Mecânica",
+    edificacoes: "Edificações",
+    eletrotecnica: "Eletrotécnica",
+    seguranca: "Segurança do Trabalho",
+    planejador: "Planejamento",
     logistica: "Logística",
     outros: "Outros"
   };
